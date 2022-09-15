@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Generator Wymówek</title>
+</head>
+<body>
+    <h1>Generator Wymówek</h1>
+    <div>
+        <img src="ang.png" alt='ang' id="ang">
+        <img src="pl.png" alt='pl' id="pl">
+    </div>
+    <div>
+        <button id="btn">Losuj</button>
+    </div>
+    <div>
+        <p id="par-1"></p>
+    </div>
+
+    <script>
+        const par1 = document.getElementById('par-1');
+        const ang = document.getElementById('ang');
+        const pl = document.getElementById('pl');
+        const btn = document.getElementById('btn');
+
+        let language = 'ang';
+
+
+         let part_one_Ang = ['Sorry I can\'t come','Please forgive my absense,','This is going to sound crazy but','Get this:','I can\'t go because','I know you\'re going to hate me but','I was minding my own business and boom!','I feel terrible but','I regretfully cannot attend','This is going to sound like an excuse but'];
+
+         let part_two_Ang = ['my nephew','the ghost of Hitler','the Pope','my ex','a high school marching band','Aleksander Kunczka','a sad clown','the kid from Air Bud','a proffesional cricket team','my Tinder date'];
+
+         let part_three_Ang = ['just shit the bed','died in front of me','won\'t stop telling me knock knock jokes','is having a nervous breakdown','gave me syphilis','poured lemonade in my gas tank','stabbed me','found my box of human teeth','stole my bicycle','posted my nudes on instagram'];
+
+         let part_one_Pl = ['Wybacz nie mogę przyjść','Proszę wybacz moją nieobecność,','To zabrzmi dziwnie ale','Zrozum to:','Nie przyjde ponieważ','Wkurzysz się na mnie za to ale','Zajmowałem się swoimi sprawami a tu jeb!','Źle się z tym czuje ale','Nie stety nie mogę uczestniczyć','To zabrzmi jak wymówka ale'];
+
+         let part_two_Pl = ['Mój bratanek','duch Hitlera','Papież','mój ex','orkiestra szkolna','Aleksander Kunczka','smutny klaun','dzieciak z londzina','profesjonalny zespół krykieta','moja randka z Tindera'];
+
+         let part_three_Pl = ['Właśnie nasrał na łóżko','umarł przede mną','nie przestaje opowiadać mi suchych żartów','ma załamanie nerwowe','zaraził mnie rzerzączką','nalał mi do baku lemoniady','pchnoł mnie nożem','znalazł mój pojemnik z ludzkimi zębami','ukradł mi rower','wrzucił na instagrama moje nagie fotki'];
+
+        function generateAng () {
+            par1.innerHTML = part_one_Ang[Math.floor(Math.random() * part_one_Ang.length)] + ' ' + part_two_Ang[Math.floor(Math.random() * part_two_Ang.length)] + ' ' + part_three_Ang[Math.floor(Math.random() * part_three_Ang.length)];
+         }
+
+        function generatePl () {
+            par1.innerHTML = part_one_Pl[Math.floor(Math.random() * part_one_Pl.length)] + ' ' + part_two_Pl[Math.floor(Math.random() * part_two_Pl.length)] + ' ' + part_three_Pl[Math.floor(Math.random() * part_three_Pl.length)];
+         }
+
+        // function pln() {
+        //     language = 'pl';
+        //     console.log(language);
+        // }
+
+        btn.addEventListener('click', generateAng);
+        ang.addEventListener('click', function () {btn.addEventListener('click', generateAng)});
+        pl.addEventListener('click', function () {btn.addEventListener('click', generatePl); btn.removeEventListener('click', generateAng);});     
+
+
+    </script>
+</body>
+</html>
